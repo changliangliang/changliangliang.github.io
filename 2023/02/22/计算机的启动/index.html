@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="chang">
+    
+    <title>
+        
+            计算机的启动.md |
+        
+        Chang&#39;Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"未来不迎，当下不杂，既过不恋","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"obsidian"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"changliangliang","github_admins":null,"repository":"changliangliang.github.io","client_id":"04b9beb42d2b0dcd2041","client_secret":"0463ad2ff5e8f3be4d6a84e146189c8ddbab73cf","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Lv1","Lv2","Lv3"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Chang&#39;Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">计算机的启动.md</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">chang</span>
+                            
+                                <span class="author-label">Lv3</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-02-22 12:14:59</span>
+        <span class="mobile">2023-02-22 12:14</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-04-25 21:15:59</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h2 id="第一条指令"><a href="#第一条指令" class="headerlink" title="第一条指令"></a>第一条指令</h2><p>程序在运行时必须被加载到内存中，之后 CPU 才能从内存中读取程序相关的指令并执行，操作系统本身是一种程序，自然也要遵循这样的过程。不过这里有一个问题，执行其他程序的时候，都是由操作系统将程序读取到内存中的，那么操作系统又是被谁加载进内存中的呢？答案是 BIOS 程序。</p>
+<p>下图是计算机在启动时加载操作系统的简要流程，当我们按下电源的时候，会首先执行 BIOS 程序，之后它会从硬盘中读取引导程序，引导程序再将操作系统加载进内存中。</p>
+<p><img src="/attach/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%AF%E5%8A%A8_image_1.png"></p>
+<p>所以在计算机通电后，执行的第一条指令是属于 BIOS 程序的，那么接下来的问题是，BOIS 程序在什么地方？它又是怎么被加载进内存的？CPU 是如何开始执行它的第一条指令的？</p>
+<p>BIOS 程序作为计算机启动后执行的第一个程序，肯定不能像操作系统一样存放在硬盘上，当然它也不能直接存放在内存中，因为内存断电以后所有的数据就都消失了。事实上 BIOS 被存放在主板上的一个只读存储器（ROM）里，ROM 的特点在于断电后数据不会丢失，当计算机加电之后，硬件逻辑会将 ROM 中存放的 BIOS 程序读取到内存中 0xFFFF0 这个位置，并强制将 CS 寄存器的值为 0xF000、IP 寄存器的值为 0xFFF0，这样 CS: IP 就指向了 0xFFFF0 这个地址位置，CPU 开始执行第一条指令时就从 0xFFFF0 这个内存地址读取，BIOS 程序开始被执行。</p>
+<h2 id="BIOS-程序"><a href="#BIOS-程序" class="headerlink" title="BIOS 程序"></a>BIOS 程序</h2><p>BIOS（Basic Input&#x2F;Output System）是基本输入输出系统的简称，为计算机提供最低级、最直接的硬件控制与支持，最主要功能包括：</p>
+<ul>
+<li>上电后的系统自检和初始化</li>
+<li>中断服务</li>
+<li>基础 IO 服务</li>
+<li>加载操作系统</li>
+</ul>
+<p>前文中已经了解到 BIOS 程序会被加载到 0xFFFF0 这个位置，CPU 也会从这个位置的指令开始执行 BIOS 程序，那么 BIOS 程序在执行过程中主要干了以下这么几件事：</p>
+<ul>
+<li>BIOS 首先先进行 POST（Power－On Self Test，加电后自检），主要检测系统中一些关键设备是否存在和能否正常工作，例如内存和显卡等设备。如果硬件出现问题，主板会发出不同含义的蜂鸣，并终止启动过程；如果硬件没有问题，继续执行后续流程。</li>
+<li>构建中断向量表和 BIOS 数据区，加载中断服务程序。</li>
+<li>BIOS 开始搜寻可引导的存储设备，如果找到，则将存储设备中的引导扇区读入物理内存 0x7C00 处，并跳转到 0x7C00 继续执行，从而将 CPU 交给引导扇区中的程序。</li>
+</ul>
+<h2 id="引导程序"><a href="#引导程序" class="headerlink" title="引导程序"></a>引导程序</h2><p>BIOS 将磁盘中的引导程序加载到内存中并将 CPU 控制权交给引导程序后，计算机开始与磁盘中的操作系统有了联系。</p>
+<p>此时 BOIS 加载到内存中的内容称为主引导记录（MBR），位于磁盘 0 盘面 0 磁道 1 扇区，也就是磁盘最开始的 512 个字节。当然不是所有的磁盘都装有操作系统，所以将这 512 个字节的最后两个字节规定为了标志位，如果它们的值是 0x55 和 0xAA。</p>
+<blockquote>
+<p>计算机硬件体系结构的设计与 BIOS 的联手操作：理论上，计算机可以安装任何操作系统，每个操作系统设计者都可以设计出一套自己操作系统的启动方案，而操作系统和 BIOS 通常是由不同的团队设计和开发，为了协同工作，必须建立协调机制。“两头约定”、“定位识别”。对操作系统，约定操作系统设计者必须把最开始执行的程序，即引导程序定位在启动扇区（0 盘面 0 磁道 1 扇区）。对 BIOS，约定接收到启动操作系统命令后，定位识别只从启动扇区把代码加载到 0x07C00 内存这个位置。</p>
+</blockquote>
+<p>主引导记录中的内容如下：</p>
+<ul>
+<li>启动代码（第 1-446 字节）：检查分区表正确性，加载并跳转到分区；</li>
+<li>分区表（第 447-510 字节）：描述分区状态和位置；</li>
+<li>主引导记录签名（第 511-512 字节）：当取值为 0x55 和 0xAA 表示当前主引导记录有效。</li>
+</ul>
+<p><img src="/attach/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%AF%E5%8A%A8_image_2.png"></p>
+<p>其中第一部分的 446 个字节中存储的就是启动代码，BIOS 结束后执行的就是这段程序。因为在实际使用中，我们可能会将一个磁盘划分为不同的分区，而操作系统会被安装在其中一个分区，那么接下来该将计算机的控制权交给哪个分区就是有这段启动代码来控制的。</p>
+<p>在每个分区的第 1 个扇区是本分区的分区引导扇区，主要格式如下：</p>
+<ul>
+<li>JMP 指令：跳转到启动代码；</li>
+<li>文件卷头：文件系统相关描述；</li>
+<li>启动代码：跳转到加载程序；</li>
+<li>结束标志：标志此扇区为分区引导扇区。</li>
+</ul>
+<p><img src="/attach/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%AF%E5%8A%A8_image_3.png"></p>
+<p>主引导记录将控制权交给分区后，分区中的启动代码便开始执行，跳转到系统加载程序，加载程序会加载操作系统内核并将控制权交给内核，到此操作系统就正式开始执行了。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.xuetangx.com/learn/THU08091000267/THU08091000267/12424484/video/23272495" >操作系统 - 清华大学 - 学堂在线 (xuetangx.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/liang-io/p/9651656.html" >Linux操作系统启动流程 - 浪漫De刺猬 - 博客园 (cnblogs.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1114481" >史上最详细linux启动过程讲解—没有之一 - 腾讯云开发者社区-腾讯云 (tencent.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/02/booting.html" >计算机是如何启动的？- 阮一峰的网络日志 (ruanyifeng.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32280478" >浅谈操作系统-启动过程 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/89058949" >BIOS到底是什么 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="http://xtf615.com/2017/11/20/%E4%BB%8E%E5%BC%80%E6%9C%BA%E5%8A%A0%E7%94%B5%E5%88%B0%E6%89%A7%E8%A1%8Cmain%E5%87%BD%E6%95%B0%E4%B9%8B%E5%89%8D%E7%9A%84%E8%BF%87%E7%A8%8B/" >从开机加电到执行main函数之前的过程 | 蘑菇先生学习记 (xtf615.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.jianshu.com/p/0acaff87ac59" >2. 启动BIOS，准备实模式下的中断向量表和中断服务程序 - 简书 (jianshu.com)<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">计算机的启动.md</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">chang</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-02-22 12:14:59</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2023/02/22/计算机的启动/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2023/03/11/Spring%E5%9F%BA%E4%BA%8EXML%E7%9A%84%E9%85%8D%E7%BD%AE/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Spring基于XML的配置.md</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2022/12/19/socket%E8%BF%9E%E6%8E%A5%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E5%8E%9F%E5%9B%A0/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">socket连接不安全的原因.md</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    
+<div class="comments-container">
+    <div id="comments-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments"></i>&nbsp;评论
+    </div>
+    
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script  src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+        <script >
+          function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+              __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+              Gitalk && new Gitalk({
+                clientID: '04b9beb42d2b0dcd2041',
+                clientSecret: '0463ad2ff5e8f3be4d6a84e146189c8ddbab73cf',
+                repo: 'changliangliang.github.io',
+                owner: 'changliangliang',
+                admin: 'changliangliang',
+                id: __gitalk__pathname,
+                proxy: '',
+                language: 'zh-CN'
+              }).render('gitalk-container');
+            } catch (e) {
+              window.Gitalk = null;
+            }
+          }
+
+          if ('false' === 'true') {
+            const loadGitalkTimeout = setTimeout(() => {
+              loadGitalk();
+              clearTimeout(loadGitalkTimeout);
+            }, 1000);
+          } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+          }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%9D%A1%E6%8C%87%E4%BB%A4"><span class="nav-text">第一条指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BIOS-%E7%A8%8B%E5%BA%8F"><span class="nav-text">BIOS 程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"><span class="nav-text">引导程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2022</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">chang</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://github.com/changliangliang">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+
+</body>
+</html>

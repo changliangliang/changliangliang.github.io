@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="chang">
+    
+    <title>
+        
+            SpringBoot中默认的异常处理.md |
+        
+        Chang&#39;Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"未来不迎，当下不杂，既过不恋","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"obsidian"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"changliangliang","github_admins":null,"repository":"changliangliang.github.io","client_id":"04b9beb42d2b0dcd2041","client_secret":"0463ad2ff5e8f3be4d6a84e146189c8ddbab73cf","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Lv1","Lv2","Lv3"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Chang&#39;Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    
+<div class="fade-in-down-animation">
+    <div class="page-template-container">
+        
+        
+        <div class="page-template-content keep-markdown-body">
+            
+                <h2 id="默认表现"><a href="#默认表现" class="headerlink" title="默认表现"></a>默认表现</h2><p>当请求出现错误时 SpringBoot 会进行默认的异常处理，可能会返回一个错误页面或者 <code>json</code> 数据，则取决于请求的数据类型。</p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_1.png"></p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_2.png"></p>
+<h2 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h2><p>在错误自动配置文件 <code>ErrorMvcAutoConfiguration</code> 中，自动配置了以下组件：</p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_3.png"></p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_3.png"></p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_4.png"></p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_5.png"></p>
+<p>一但系统出现 <code>4xx</code> 或者 <code>5xx</code> 之类的错误，SpringBoot 会将错误抛给 Tomcat，Tomcat 会将请求转发到 <code>ErrorPageCustomizer</code> 配置的路径，默认是 <code>/error</code>。请求会被 <code>BasicErrorController</code> 处理，如果请求的是 <code>html</code>，将会由 <code>DefaultErrorViewResolver</code> 解析得到的对应的视图（模板中写的 <code>4xx</code> 或 <code>5xx</code> 开头的页面），如果请求的是 <code>json</code>，则会直接返回数据。</p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_6.png"></p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_7.png"></p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_8.png"></p>
+<p>无论是返回 <code>html</code> 还是 <code>json</code>，其中的数据都通过 <code>DefaultErrorAttributes</code> 获得：</p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_9.png"></p>
+<h2 id="定制返回页面"><a href="#定制返回页面" class="headerlink" title="定制返回页面"></a>定制返回页面</h2><h3 id="定制错误的页面"><a href="#定制错误的页面" class="headerlink" title="定制错误的页面"></a>定制错误的页面</h3><p>有模板引擎的情况下会返回，SpringBoot 最终会解析到的视图页面为 <code>error/状态码.html</code>，将错误页面命名为 <code>错误状态码.html</code> 放在模板引擎文件夹里面的 <code>error</code> 文件夹下，发生此状态码的错误就会来到对应的页面，在页面中可以获得的信息：</p>
+<table>
+<thead>
+<tr>
+<th>信息</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>timestamp</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>status</td>
+<td>状态码</td>
+</tr>
+<tr>
+<td>error</td>
+<td>错误名称</td>
+</tr>
+<tr>
+<td>exception</td>
+<td>异常类型</td>
+</tr>
+<tr>
+<td>message</td>
+<td>异常消息</td>
+</tr>
+<tr>
+<td>trace</td>
+<td>错误堆栈</td>
+</tr>
+<tr>
+<td>path</td>
+<td>路径信息</td>
+</tr>
+</tbody></table>
+<p>没有使用模板引擎，或者模板引擎找不到对应的错误页面，将会在静态资源文件夹下找对应的页面，命名方式仍然为 <code>错误状态码.html</code>。如果还是没有找到，将返回 SpringBoot 默认的页面：</p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_10.png"></p>
+<h3 id="添加额外数据"><a href="#添加额外数据" class="headerlink" title="添加额外数据"></a>添加额外数据</h3><p>如果想在返回的 <code>html</code> 页面或 <code>json</code> 中添加额外的数据，根据错误的处理流程，我们可以实现一个<br><code>DefaultErrorAttributes</code> 的子类，重写其中的 <code>getErrorAttributes</code> 方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyErrorAttributes</span>  <span class="keyword">extends</span> <span class="title class_">DefaultErrorAttributes</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title function_">getErrorAttributes</span><span class="params">(WebRequest webRequest, <span class="type">boolean</span> includeStackTrace)</span> &#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = <span class="built_in">super</span>.getErrorAttributes(webRequest, includeStackTrace);</span><br><span class="line">        <span class="keyword">if</span> ((Integer)map.get(<span class="string">&quot;status&quot;</span>) == <span class="number">500</span>) &#123;</span><br><span class="line">            map.put(<span class="string">&quot;message&quot;</span>, <span class="string">&quot;服务器内部错误!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="统一异常处理"><a href="#统一异常处理" class="headerlink" title="统一异常处理"></a>统一异常处理</h2><p>目前在开发过程中很少直接使用 SpringBoot 中默认的异常处理机制，因为处理起来不过灵活，统一异常处理是目前比较推荐的方法，跟多详细内容见：<a href="%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Java%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.md">SpringBoot统一异常处理</a>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebExceptionHandler</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="keyword">public</span> ResultBean <span class="title function_">unknownAccount</span><span class="params">(UnknownAccountException e)</span> &#123;</span><br><span class="line">        log.error(<span class="string">&quot;账号不存在&quot;</span>, e);</span><br><span class="line">        <span class="keyword">return</span> ResultBean.error(<span class="number">1</span>, <span class="string">&quot;账号不存在&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="keyword">public</span> ResultBean <span class="title function_">incorrectCredentials</span><span class="params">(IncorrectCredentialsException e)</span> &#123;</span><br><span class="line">        log.error(<span class="string">&quot;密码错误&quot;</span>, e);</span><br><span class="line">        <span class="keyword">return</span> ResultBean.error(-<span class="number">2</span>, <span class="string">&quot;密码错误&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="keyword">public</span> ResultBean <span class="title function_">unknownException</span><span class="params">(Exception e)</span> &#123;</span><br><span class="line">        log.error(<span class="string">&quot;发生了未知异常&quot;</span>, e);</span><br><span class="line">        <span class="comment">// 发送邮件通知技术人员.</span></span><br><span class="line">        <span class="keyword">return</span> ResultBean.error(-<span class="number">99</span>, <span class="string">&quot;系统出现错误, 请联系网站管理员!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Springboot-如何跳转到-error"><a href="#Springboot-如何跳转到-error" class="headerlink" title="Springboot 如何跳转到 /error"></a>Springboot 如何跳转到 <code>/error</code></h2><p>Springboot 在启动的时候会默认添加下面这三个异常解析器，如果这几个异常解析器都没有处理异常，那么异常将抛给 Tomcat：</p>
+<ul>
+<li><code>ExceptionHandlerExceptionResolver</code>：处理 <code>@ExceptionHandler</code> 注解</li>
+<li><code>ResponseStatusExceptionResolver</code>：处理 <code>@ResponseStatus</code> 注解</li>
+<li><code>DefaultHandlerExceptionResolver</code>：处理 SpringMVC 标准异常异常</li>
+</ul>
+<p>在 Tomcat 中的 <code>web.xml</code> 异常处理配置如下图所示，可以根据错误代码处理异常，也可以根据异常类型处理异常。</p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_11.png"></p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_12.png"></p>
+<p>SpringBoot 中 Tomcat 是以内嵌容器的形式出现的，所以将错误配置抽象成了 <code>ErrorPage</code> 类，而前文中的 <code>ErrorPageCustomizer</code> 就是用来配置 <code>ErrorPage</code> 的，它会读取配置文件中的 <code>server.error.path</code>，该值默认为 <code>/error</code>。</p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_13.png"></p>
+<p><img src="/attach/SpringBoot%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86_image_14.png"></p>
+
+            
+        </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2022</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">chang</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://github.com/changliangliang">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

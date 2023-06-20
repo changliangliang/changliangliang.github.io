@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="chang">
+    
+    <title>
+        
+            SpringSecurity配置.md |
+        
+        Chang&#39;Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"未来不迎，当下不杂，既过不恋","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"obsidian"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"changliangliang","github_admins":null,"repository":"changliangliang.github.io","client_id":"04b9beb42d2b0dcd2041","client_secret":"0463ad2ff5e8f3be4d6a84e146189c8ddbab73cf","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Lv1","Lv2","Lv3"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Chang&#39;Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    
+<div class="fade-in-down-animation">
+    <div class="page-template-container">
+        
+        
+        <div class="page-template-content keep-markdown-body">
+            
+                <h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>在 SpringBoot 中使用 SpringSecurity 只需要引入如下依赖即可，其中包含了对 SpringSecurity 的自动配置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HttpSecurity-配置"><a href="#HttpSecurity-配置" class="headerlink" title="HttpSecurity 配置"></a>HttpSecurity 配置</h2><p>SpringSecurity 中最核心的就是 <code>SecurityFilterChain</code>，在默认的自动配置中会像 Spring 容器中添加一个 <code>SecurityFilterChain</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration(proxyBeanMethods = false)</span></span><br><span class="line"><span class="meta">@ConditionalOnWebApplication(type = Type.SERVLET)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SpringBootWebSecurityConfiguration</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Configuration(proxyBeanMethods = false)</span></span><br><span class="line">    <span class="meta">@ConditionalOnDefaultWebSecurity</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">SecurityFilterChainConfiguration</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Bean</span></span><br><span class="line">        <span class="meta">@Order(SecurityProperties.BASIC_AUTH_ORDER)</span></span><br><span class="line">        SecurityFilterChain <span class="title function_">defaultSecurityFilterChain</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">            http.authorizeRequests().anyRequest().authenticated();</span><br><span class="line">            http.formLogin();</span><br><span class="line">            http.httpBasic();</span><br><span class="line">            <span class="keyword">return</span> http.build();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果需要自定义过滤器链，只需要向 Srping 容器中添加一个 <code>SecurityFilterChain</code> 替换掉默认的即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> SecurityFilterChain <span class="title function_">filterChain</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    http</span><br><span class="line">        .authorizeRequests(authorize -&gt; authorize</span><br><span class="line">            .anyRequest().authenticated()</span><br><span class="line">        )</span><br><span class="line">        .formLogin(withDefaults())</span><br><span class="line">        .httpBasic(withDefaults());</span><br><span class="line">    <span class="keyword">return</span> http.build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户名密码认证"><a href="#用户名密码认证" class="headerlink" title="用户名密码认证"></a>用户名密码认证</h2><h3 id="登陆页面"><a href="#登陆页面" class="headerlink" title="登陆页面"></a>登陆页面</h3><p>SpringSecurity 中默认支持了使用密码和用户名登陆，只要引入 SpringSecurity 相关依赖后我们的应用就被保护起来了，这时候访问任意一个连接都会跳转到如下页面，需要输入用户名和密码后才能继续访问。</p>
+<p><img src="/attach/SpringSecurity%E9%85%8D%E7%BD%AE_image_1.png"></p>
+<p>默认配置下会创建一个名为 <code>user</code> 的用户，在后台日志中可以看到该用户的密码，需要注意的是每次程序启动都会生成一个新的密码。</p>
+<p><img src="/attach/SpringSecurity%E9%85%8D%E7%BD%AE_image_2.png"></p>
+<p>SpringSecurity 支持了我们对登陆页面的自定义，方式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">http.formLogin()</span><br><span class="line">        .usernameParameter(<span class="string">&quot;username&quot;</span>) <span class="comment">// 用户名参数名</span></span><br><span class="line">        .passwordParameter(<span class="string">&quot;password&quot;</span>) <span class="comment">// 密码参数名</span></span><br><span class="line">        .loginPage(<span class="string">&quot;/loginPage&quot;</span>)       <span class="comment">// 登陆页面路径,访问时如果用户没登陆会跳转到该页面</span></span><br><span class="line">        .loginProcessingUrl(<span class="string">&quot;/longin&quot;</span>) <span class="comment">// 登陆处理路径,登陆时提交数据的地址</span></span><br><span class="line">        .successForwardUrl(<span class="string">&quot;/success&quot;</span>) <span class="comment">// 登陆成功后返回的地址</span></span><br><span class="line">        .failureForwardUrl(<span class="string">&quot;/fail&quot;</span>);   <span class="comment">// 登陆失败后返回的地址                     </span></span><br></pre></td></tr></table></figure>
+
+<p>如果程序采用前后端分离的方式，那么登陆成功或失败的时候应该返回 <code>json</code> 数据，可以选择使用 <code>successHandler</code> 和 <code>failureHandler</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http.formLogin()</span><br><span class="line">        .successHandler()</span><br><span class="line">        .failureHandler();</span><br></pre></td></tr></table></figure>
+
+<p>这两个方法分别需要传入一个 <code>AuthenticationSuccessHandler</code> 和 <code>AuthenticationFailureHandler</code>，在登陆成功或失败的时候会分别调用 <code>onAuthenticationSuccess</code> 和 <code>onAuthenticationFailure</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> T <span class="title function_">successHandler</span><span class="params">(AuthenticationSuccessHandler successHandler)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.successHandler = successHandler;</span><br><span class="line">    <span class="keyword">return</span> getSelf();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AuthenticationSuccessHandler</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">onAuthenticationSuccess</span><span class="params">(HttpServletRequest request, HttpServletResponse response,</span></span><br><span class="line"><span class="params">            Authentication authentication)</span> <span class="keyword">throws</span> IOException, ServletException;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> T <span class="title function_">failureHandler</span><span class="params">(AuthenticationFailureHandler authenticationFailureHandler)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.failureUrl = <span class="literal">null</span>;</span><br><span class="line">    <span class="built_in">this</span>.failureHandler = authenticationFailureHandler;</span><br><span class="line">    <span class="keyword">return</span> getSelf();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AuthenticationFailureHandler</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">onAuthenticationFailure</span><span class="params">(HttpServletRequest request, HttpServletResponse response,</span></span><br><span class="line"><span class="params">            AuthenticationException exception)</span> <span class="keyword">throws</span> IOException, ServletException;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>想要返回 <code>json</code> 数据可以实现这两个方法，如下面的代码所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onAuthenticationSuccess</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Authentication authentication)</span> <span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line">        Result&lt;String&gt; ok = Result.ok(<span class="string">&quot;登陆成功&quot;</span>, JwtUtil.create(authentication.getName()));</span><br><span class="line">        response.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">        response.setContentType(<span class="string">&quot;application/json&quot;</span>);</span><br><span class="line">        response.getWriter().print(JSONUtil.toJsonStr(ok));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="密码存储"><a href="#密码存储" class="headerlink" title="密码存储"></a>密码存储</h3><h4 id="存储在内存"><a href="#存储在内存" class="headerlink" title="存储在内存"></a>存储在内存</h4><p>默认配置下程序启动时会创建一个名为 <code>user</code> 用户，原因是在 SrpingSecurity 自动配置中注入了一个 <code>InMemoryUserDetailsManager</code> 实例，它实现了 <code>UserDetailsService</code> 接口，是获取用户名的组件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Lazy</span></span><br><span class="line"><span class="keyword">public</span> InMemoryUserDetailsManager <span class="title function_">inMemoryUserDetailsManager</span><span class="params">(SecurityProperties properties,</span></span><br><span class="line"><span class="params">        ObjectProvider&lt;PasswordEncoder&gt; passwordEncoder)</span> &#123;</span><br><span class="line">    SecurityProperties.<span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> properties.getUser();</span><br><span class="line">    List&lt;String&gt; roles = user.getRoles();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">InMemoryUserDetailsManager</span>(</span><br><span class="line">            User.withUsername(user.getName()).password(getOrDeducePassword(user, passwordEncoder.getIfAvailable()))</span><br><span class="line">                    .roles(StringUtils.toStringArray(roles)).build());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果想用添加自定义的用户，需要 Spring 向容器中添加一个新的 <code>InMemoryUserDetailsManager</code>，需要注意的是添加用户时使用的密码应该为加密后的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> UserDetailsService <span class="title function_">users</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">UserDetails</span> <span class="variable">user</span> <span class="operator">=</span> User.builder()</span><br><span class="line">        .username(<span class="string">&quot;user&quot;</span>)</span><br><span class="line">        .password(<span class="string">&quot;&#123;bcrypt&#125;$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW&quot;</span>)</span><br><span class="line">        .roles(<span class="string">&quot;USER&quot;</span>)</span><br><span class="line">        .build();</span><br><span class="line">    <span class="type">UserDetails</span> <span class="variable">admin</span> <span class="operator">=</span> User.builder()</span><br><span class="line">        .username(<span class="string">&quot;admin&quot;</span>)</span><br><span class="line">        .password(<span class="string">&quot;&#123;bcrypt&#125;$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW&quot;</span>)</span><br><span class="line">        .roles(<span class="string">&quot;USER&quot;</span>, <span class="string">&quot;ADMIN&quot;</span>)</span><br><span class="line">        .build();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">InMemoryUserDetailsManager</span>(user, admin);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="存储在数据库"><a href="#存储在数据库" class="headerlink" title="存储在数据库"></a>存储在数据库</h4><p>在内存重存储的数据一段程序重启就丢失了，所以密码在生产环境中应该存储到数据库（如 MySQL）中，SpringSecurity 提供了这方面的支持，只要添加一个 <code>JdbcUserDetailsManager</code> 实例即可，需要注意的是使用数据的时候需要提前在数据库中创建对应的用户表，创建表的 SQL 语句存放在 <code>org/springframework/security/core/userdetails/jdbc/users.ddl</code> 中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">UserDetailsService <span class="title function_">users</span><span class="params">(DataSource dataSource)</span> &#123;</span><br><span class="line">    <span class="type">UserDetails</span> <span class="variable">user</span> <span class="operator">=</span> User.builder()</span><br><span class="line">        .username(<span class="string">&quot;user&quot;</span>)</span><br><span class="line">        .password(<span class="string">&quot;&#123;bcrypt&#125;$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW&quot;</span>)</span><br><span class="line">        .roles(<span class="string">&quot;USER&quot;</span>)</span><br><span class="line">        .build();</span><br><span class="line">    <span class="type">UserDetails</span> <span class="variable">admin</span> <span class="operator">=</span> User.builder()</span><br><span class="line">        .username(<span class="string">&quot;admin&quot;</span>)</span><br><span class="line">        .password(<span class="string">&quot;&#123;bcrypt&#125;$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW&quot;</span>)</span><br><span class="line">        .roles(<span class="string">&quot;USER&quot;</span>, <span class="string">&quot;ADMIN&quot;</span>)</span><br><span class="line">        .build();</span><br><span class="line">    <span class="type">JdbcUserDetailsManager</span> <span class="variable">users</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JdbcUserDetailsManager</span>(dataSource);</span><br><span class="line">    users.createUser(user);</span><br><span class="line">    users.createUser(admin);</span><br><span class="line">    <span class="keyword">return</span> users;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> users(username varchar_ignorecase(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">primary</span> key,password varchar_ignorecase(<span class="number">500</span>) <span class="keyword">not</span> <span class="keyword">null</span>,enabled <span class="type">boolean</span> <span class="keyword">not</span> <span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> authorities (username varchar_ignorecase(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,authority varchar_ignorecase(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,<span class="keyword">constraint</span> fk_authorities_users <span class="keyword">foreign</span> key(username) <span class="keyword">references</span> users(username));</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">unique</span> index ix_auth_username <span class="keyword">on</span> authorities (username,authority);</span><br></pre></td></tr></table></figure>
+
+<p>这种方式的问题在于需要创建一个单独的用户表来存储信息，使用起来不够灵活，自定义的用户还需要创建其他表来存放，解决方法是实现一个自己的 <code>UserDetailsService</code>，在 <code>loadUserByUsername</code> 方法中可以从任意数据源获取用户信息。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserDetailsService</span> <span class="keyword">implements</span> <span class="title class_">org</span>.springframework.security.core.userdetails.UserDetailsService &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> IUserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserDetailsService</span><span class="params">(IUserService userService)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.userService = userService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> UserDetails <span class="title function_">loadUserByUsername</span><span class="params">(String username)</span> <span class="keyword">throws</span> UsernameNotFoundException &#123;</span><br><span class="line">        QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">        queryWrapper.eq(<span class="string">&quot;username&quot;</span>, username);</span><br><span class="line">        List&lt;User&gt; userList = userService.list(queryWrapper);</span><br><span class="line">        <span class="keyword">if</span>(userList.size() != <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">UsernameNotFoundException</span>(<span class="string">&quot;用户不存在！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> userList.get(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">com</span>.liang.cfile.config.security.UserDetails(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Session-管理"><a href="#Session-管理" class="headerlink" title="Session 管理"></a>Session 管理</h2><h3 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h3><p>Session 超时设置是 SpringBoot 原生支持的，时间单位为秒，最小有效期为 60 秒，也就是说即使你设置为小于 60 秒的值，其有效期还是为 60 秒。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  servlet:</span><br><span class="line">    session:</span><br><span class="line">      timeout: <span class="number">1000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建时机"><a href="#创建时机" class="headerlink" title="创建时机"></a>创建时机</h3><p>SpringSecurity 通过了四种创建 Session 的策略：</p>
+<ul>
+<li>ALWAYS：总是创建 Session</li>
+<li>NEVER：不主动创建 Seesion，但会使用已存在的 Session</li>
+<li>IF_REQUIRED：近在需要的时候创建 Session</li>
+<li>STATELESS：从不使用 Session</li>
+</ul>
+<p>需要注意的是这里仅是 SpringSecurity 的 Session 创建策略，没办法控制应用中的其他部分，假设使用了 <code>STATELESS</code> 策略，也仅仅表示 SpringSecurity 不会使用或者操作 Session，但我们仍能在 <code>Controller</code> 中创建 Session 和使用 Session。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> SecurityFilterChain <span class="title function_">filterChain</span><span class="params">(HttpSecurity http)</span> &#123;</span><br><span class="line">    http.sessionManagement()</span><br><span class="line">        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);</span><br><span class="line">    <span class="keyword">return</span> http.build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> SecurityFilterChain <span class="title function_">filterChain</span><span class="params">(HttpSecurity http)</span> &#123;</span><br><span class="line">    http</span><br><span class="line">        .logout(logout -&gt; logout</span><br><span class="line">            .deleteCookies(<span class="string">&quot;JSESSIONID&quot;</span>)</span><br><span class="line">        );</span><br><span class="line">    <span class="keyword">return</span> http.build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="失效处理"><a href="#失效处理" class="headerlink" title="失效处理"></a>失效处理</h3><p>当 Session 过期之后，可以选择跳转到指定页面 (如登陆页面)：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.sessionManagement()</span><br><span class="line">        .invalidSessionUrl(<span class="string">&quot;/login/page&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+<p>也可以使用自定义的失效处理策略：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.sessionManagement()</span><br><span class="line">        .invalidSessionStrategy(invalidSessionStrategy) <span class="comment">// 自己实现的策略</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h3><p>要对 Session 进行并发控制，首先要做的是向容器中添加一个监听器，之后可以在配置中设置最大的并发量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> HttpSessionEventPublisher <span class="title function_">httpSessionEventPublisher</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">HttpSessionEventPublisher</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http.sessionManagement()</span><br><span class="line">        .maximumSessions(<span class="number">1</span>)</span><br><span class="line">        .maxSessionsPreventsLogin(<span class="literal">true</span>); <span class="comment">// 默认情况下后登陆的会把先登陆的顶掉</span></span><br><span class="line">                                         <span class="comment">// 该配置用于阻止后登陆</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="记住我"><a href="#记住我" class="headerlink" title="记住我"></a>记住我</h2><p>记住我配置使用的 <code>http.rememberMe()</code> 方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.rememberMe().rememberMeServices()</span><br></pre></td></tr></table></figure>
+
+<h2 id="注销"><a href="#注销" class="headerlink" title="注销"></a>注销</h2><p>注销的配置与登陆配置类似,，就不在作过多的赘述。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http</span><br><span class="line">    .logout()                                            </span><br><span class="line">        .logoutUrl(<span class="string">&quot;/my/logout&quot;</span>)                                            </span><br><span class="line">        .logoutSuccessUrl(<span class="string">&quot;/my/index&quot;</span>)                                      </span><br><span class="line">        .logoutSuccessHandler(logoutSuccessHandler)                         </span><br><span class="line">        .invalidateHttpSession(<span class="literal">true</span>)                                        </span><br><span class="line">        .addLogoutHandler(logoutHandler)                                    </span><br><span class="line">        .deleteCookies(cookieNamesToClear)                                  </span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><p>权限相关的配置使用 <code>http.authorizeHttpRequests()</code>，大致就是设置对应的路径，然后在配置需要的权限：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">SecurityFilterChain <span class="title function_">web</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> AuthenticationException &#123;</span><br><span class="line">    http.authorizeHttpRequests().mvcMatchers(<span class="string">&quot;/xxxxxx&quot;</span>).hasRole(<span class="string">&quot;user&quot;</span>);    </span><br><span class="line">    <span class="keyword">return</span> http.build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http.requestMatchers(<span class="string">&quot;/resources/**&quot;</span>, <span class="string">&quot;/signup&quot;</span>, <span class="string">&quot;/about&quot;</span>).permitAll()         </span><br><span class="line">http.requestMatchers(<span class="string">&quot;/admin/**&quot;</span>).hasRole(<span class="string">&quot;ADMIN&quot;</span>)                             </span><br><span class="line">http.requestMatchers(<span class="string">&quot;/db/**&quot;</span>).access(<span class="keyword">new</span> <span class="title class_">WebExpressionAuthorizationManager</span>(<span class="string">&quot;hasRole(&#x27;ADMIN&#x27;) and hasRole(&#x27;DBA&#x27;)&quot;</span>))   </span><br><span class="line">http.anyRequest().denyAll()          </span><br></pre></td></tr></table></figure>
+
+<p><code>permitAll()</code> 表示全部放行，<code>denyAll()</code> 表示全部拒绝，<code>hasRole(&quot;ADMIN&quot;)</code>，表示必须是 <code>ADMIN</code> 角色，<code>access(new WebExpressionAuthorizationManager(&quot;hasRole(&#39;ADMIN&#39;) and hasRole(&#39;DBA&#39;)&quot;)) </code> 使用表达式形式（更多表达式的信息可以查看文档 <a class="link"   target="_blank" rel="noopener" href="https://springdoc.cn/spring-security/servlet/authorization/expression-based.html" >基于表达式的访问控制 :: Spring Security Reference<i class="fas fa-external-link-alt"></i></a>）。</p>
+<p>如果默认的授权无法满足需求，可以实现自己的 <code>AuthorizationManager</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">AuthorizationManager&lt;RequestAuthorizationContext&gt; <span class="title function_">requestMatcherAuthorizationManager</span><span class="params">(HandlerMappingIntrospector introspector)</span> &#123;</span><br><span class="line">    MvcRequestMatcher.<span class="type">Builder</span> <span class="variable">mvcMatcherBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MvcRequestMatcher</span>.Builder(introspector);</span><br><span class="line">    <span class="type">RequestMatcher</span> <span class="variable">permitAll</span> <span class="operator">=</span></span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">AndRequestMatcher</span>(</span><br><span class="line">                    mvcMatcherBuilder.pattern(<span class="string">&quot;/resources/**&quot;</span>),</span><br><span class="line">                    mvcMatcherBuilder.pattern(<span class="string">&quot;/signup&quot;</span>),</span><br><span class="line">                    mvcMatcherBuilder.pattern(<span class="string">&quot;/about&quot;</span>));</span><br><span class="line">    <span class="type">RequestMatcher</span> <span class="variable">admin</span> <span class="operator">=</span> mvcMatcherBuilder.pattern(<span class="string">&quot;/admin/**&quot;</span>);</span><br><span class="line">    <span class="type">RequestMatcher</span> <span class="variable">db</span> <span class="operator">=</span> mvcMatcherBuilder.pattern(<span class="string">&quot;/db/**&quot;</span>);</span><br><span class="line">    <span class="type">RequestMatcher</span> <span class="variable">any</span> <span class="operator">=</span> AnyRequestMatcher.INSTANCE;</span><br><span class="line">    AuthorizationManager&lt;HttpServletRequest&gt; manager = RequestMatcherDelegatingAuthorizationManager.builder()</span><br><span class="line">            .add(permitAll, (context) -&gt; <span class="keyword">new</span> <span class="title class_">AuthorizationDecision</span>(<span class="literal">true</span>))</span><br><span class="line">            .add(admin, AuthorityAuthorizationManager.hasRole(<span class="string">&quot;ADMIN&quot;</span>))</span><br><span class="line">            .add(db, AuthorityAuthorizationManager.hasRole(<span class="string">&quot;DBA&quot;</span>))</span><br><span class="line">            .add(any, <span class="keyword">new</span> <span class="title class_">AuthenticatedAuthorizationManager</span>())</span><br><span class="line">            .build();</span><br><span class="line">    <span class="keyword">return</span> (context) -&gt; manager.check(context.getRequest());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2022</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">chang</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://github.com/changliangliang">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
